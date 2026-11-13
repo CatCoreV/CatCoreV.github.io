@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { withBasePath } from "@/lib/paths";
 
 export default function Home() {
-  redirect("/en");
+  return <a href={withBasePath("/en/")}>Continue to CatCore</a>;
 };

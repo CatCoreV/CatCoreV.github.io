@@ -68,13 +68,13 @@ export default function HomePage() {
 
       <nav>
         <div className="nav-container">
-          <a href="https://catcore.topcatto.xyz" className="logo">
+          <Link href="/" className="logo">
             <span>😺</span>
             <span>CatCore</span>
-          </a>
+          </Link>
           <ul className="nav-links">
             <li><Link href="/ru">EN/RU</Link></li>
-            <li><a href="/en/docs/getting-started" target="_blank">Documentation</a></li>
+            <li><Link href="/en/docs/getting-started" target="_blank">Documentation</Link></li>
             <li><a href="#features">Features</a></li>
             <li><a href="https://github.com/CatCoreV" target="_blank">GitHub</a></li>
           </ul>
@@ -87,9 +87,9 @@ export default function HomePage() {
           <h1>CatCore</h1>
           <p>It&apos;s easy to make your own OS with CatCore kernel</p>
           <div className="btn-group">
-            <a href="/en/docs/getting-started" target="_blank" className="btn btn-primary">
+            <Link href="/en/docs/getting-started" target="_blank" className="btn btn-primary">
               Get Started
-            </a>
+            </Link>
             <a href="#features" className="btn btn-secondary">
               Learn More
             </a>
@@ -166,9 +166,9 @@ export default function HomePage() {
               <code>git clone https://github.com/CatCoreV/os-compiler.git</code>
             </div>
             <div className="btn-group">
-              <a href="/en/docs/getting-started" target="_blank" className="btn btn-primary">
+              <Link href="/en/docs/getting-started" target="_blank" className="btn btn-primary">
                 Get Started
-              </a>
+              </Link>
               <a href="https://github.com/CatCoreV/os-compiler" target="_blank" className="btn btn-secondary">
                 View on GitHub
               </a>
@@ -186,9 +186,9 @@ export default function HomePage() {
             <a href="https://discord.gg/AU5PBWxeVN" target="_blank" rel="noopener noreferrer">
               Discord
             </a>
-            <a href="/docs" target="_blank" rel="noopener noreferrer">
+            <Link href="/en/docs/getting-started" target="_blank" rel="noopener noreferrer">
               Documentation
-            </a>
+            </Link>
           </div>
           <p className="footer-text">&copy; 2025 CatCore. Made with 💜 by topcatto.</p>
         </div>
