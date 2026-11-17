@@ -64,7 +64,7 @@ CatCore has it's own file system structure:
     `/dev` contains **devices** inside and it's contents may vary on the host device.
   </Accordion>
   <Accordion title="/lib" id="filesystem-lib">
-    `/lib` mount contains **LIB**aries for applications to use. By default of `lib_path` (from `/config/kernel.conf`), libraries will first be checked in `/app`, and then in `/lib`, but it's not really required (you're able to change `lib_path` to use a different folder instead of `/lib`).
+    `/lib` mount contains **LIB**raries for applications to use. By default of `lib_path` (from `/config/kernel.conf`), libraries will first be checked in `/app`, and then in `/lib`, but it's not really required (you're able to change `lib_path` to use a different folder instead of `/lib`).
   </Accordion>
   <Accordion title="/system" id="filesystem-system">
     `/system` is empty by default, but you're supposed to add files there using `src/overlay-fs/system` of your OS source code. This mount is supposed to contain OS files and CatCore looks for `system` or `sys` file to boot in there.
