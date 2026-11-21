@@ -7,22 +7,15 @@ import { TypeTable } from "fumadocs-ui/components/type-table";
 
 First, let's start by just outputting some text:
 
-<Tabs groupId="oslanguage" items={["JavaScript", "Python", "PHP", "Ruby"]} persist>
+<Tabs groupId="oslanguage" items={["JavaScript", "PHP", "Ruby"]} persist>
   <Tab value="JavaScript">
     ```javascript
     CatCore.text("Hello, World!");
     ```
   </Tab>
-  <Tab value="Python">
-    ```python
-    CatCore.text("Hello, World!")
-    ```
-  </Tab>
   <Tab value="PHP">
     ```php
-    <?php
-      $CatCore->text("Hello, World!");
-    ?>
+    $CatCore->text("Hello, World!");
     ```
   </Tab>
   <Tab value="Ruby">
@@ -32,11 +25,11 @@ First, let's start by just outputting some text:
   </Tab>
 </Tabs>
 
-This was easy! And for multi-line texts just use `\n` or anything else you would normally.
+This was easy! And for multiple lines just use `\n` or anything else you would use normally.
 
 You might want to **customize** this text. Here's an example of one of text's properties:
 
-<Tabs groupId="oslanguage" items={["JavaScript", "Python", "PHP", "Ruby"]} persist>
+<Tabs groupId="oslanguage" items={["JavaScript", "PHP", "Ruby"]} persist>
   <Tab value="JavaScript">
     ```javascript
     // Set value
@@ -46,24 +39,13 @@ You might want to **customize** this text. Here's an example of one of text's pr
     var offset = CatCore.textOffset();
     ```
   </Tab>
-  <Tab value="Python">
-    ```python
-    # Set value
-    CatCore.textOffset(16)
-
-    # Read value
-    offset = CatCore.textOffset()
-    ```
-  </Tab>
   <Tab value="PHP">
     ```php
-    <?php
-      // Set value
-      $CatCore->textOffset(16);
+    // Set value
+    $CatCore->textOffset(16);
 
-      // Read value
-      $offset = $CatCore->textOffset();
-    ?>
+    // Read value
+    $offset = $CatCore->textOffset();
     ```
   </Tab>
   <Tab value="Ruby">
@@ -101,25 +83,17 @@ This is just an example, here's the list of every single one, use them just as a
 
 There's also one more function `CatCore.enableANSI`, which is a boolean. It controls whetever `CatCore.text` should parse and render ANSI escape sequences. Here's an example for you:
 
-<Tabs groupId="oslanguage" items={["JavaScript", "Python", "PHP", "Ruby"]} persist>
+<Tabs groupId="oslanguage" items={["JavaScript", "PHP", "Ruby"]} persist>
   <Tab value="JavaScript">
     ```javascript
     CatCore.enableANSI(true);
     CatCore.text("This is \x1b[1mBOLD\x1b[0m!");
     ```
   </Tab>
-  <Tab value="Python">
-    ```python
-    CatCore.enableANSI(True)
-    CatCore.text("This is \x1b[1mBOLD\x1b[0m!")
-    ```
-  </Tab>
   <Tab value="PHP">
     ```php
-    <?php
-      $CatCore->enableANSI(true);
-      $CatCore->text("This is \x1b[1mBOLD\x1b[0m!");
-    ?>
+    $CatCore->enableANSI(true);
+    $CatCore->text("This is \x1b[1mBOLD\x1b[0m!");
     ```
   </Tab>
   <Tab value="Ruby">
@@ -130,13 +104,13 @@ There's also one more function `CatCore.enableANSI`, which is a boolean. It cont
   </Tab>
 </Tabs>
 
-CatCore understands a lot of ANSI escape sequences: bold, dim/faint, italic, underline, inverted, striketrough, background and foreground colors (in 8/16/256/RGB color modes).
+CatCore understands a lot of ANSI escape sequences: bold, dim/faint, italic, underline, inverted, striketrough, background and foreground colors (in 8/16/256/RGB color modes). Kitty image protocol and simillar are planned to be added in the future.
 
 ## Keyboard Input
 
 To make a terminal, user needs to not only read the output, but also input the commands! There's `CatCore.keyboard` object for that. Here's an example:
 
-<Tabs groupId="oslanguage" items={["JavaScript", "Python", "PHP", "Ruby"]} persist>
+<Tabs groupId="oslanguage" items={["JavaScript", "PHP", "Ruby"]} persist>
   <Tab value="JavaScript">
     ```javascript
     function keyholdHandler(event) {
@@ -148,27 +122,15 @@ To make a terminal, user needs to not only read the output, but also input the c
     CatCore.keyboard.on("hold", keyholdHandler);
     ```
   </Tab>
-  <Tab value="Python">
-    ```python
-    def keyholdHandler(event):
-      if event.key == "Shift+Digit2":
-        # User pressed Shift + 2
-        ...
-
-    CatCore.keyboard.on("hold", keyholdHandler)
-    ```
-  </Tab>
   <Tab value="PHP">
     ```php
-    <?php
-      function $keyholdHandler($event) {
-        if ($event->key == "Shift+Digit2") {
-          // User pressed Shift + 2
-        }
+    function $keyholdHandler($event) {
+      if ($event->key == "Shift+Digit2") {
+        // User pressed Shift + 2
       }
+    }
 
-      $CatCore->keyboard->on("hold", keyholdHandler);
-    ?>
+    $CatCore->keyboard->on("hold", keyholdHandler);
     ```
   </Tab>
   <Tab value="Ruby">
@@ -192,7 +154,7 @@ When your callback gets called, it receives an `event`, which is an object:
   type={{
     "key": {
       "type": "string",
-      "description": "Pressed key name, like KeyE, LeftShift, Digit4 or a combination like Ctrl+Shift+Alt+Meta+KeyE."
+      "description": "Pressed key name, like KeyE, LeftShift, Digit4 or a combination like Meta+Ctrl+Shift+Alt+KeyE."
     },
     "letter": {
       "type": "string",
@@ -203,7 +165,7 @@ When your callback gets called, it receives an `event`, which is an object:
 
 Knowing this, you can make a simple terminal:
 
-<Tabs groupId="oslanguage" items={["JavaScript", "Python", "PHP", "Ruby"]} persist>
+<Tabs groupId="oslanguage" items={["JavaScript", "PHP", "Ruby"]} persist>
   <Tab value="JavaScript">
     ```javascript
     // Variable to store last command outputs
@@ -240,40 +202,6 @@ Knowing this, you can make a simple terminal:
       renderTerminal();
     }
     CatCore.keyboard.on("hold", keyholdHandler);
-    ```
-  </Tab>
-  <Tab value="Python">
-    ```python
-    # Variable to store last command outputs
-    history = ""
-    # Variable to store current command that is being typed
-    command = ""
-
-    # Render terminal on the screen
-    def renderTerminal():
-      CatCore.text(f"{history}$ {command}")
-
-    def keyholdHandler(event):
-      if event.key == "Enter":
-        # Split typed command into command itself and arguments
-        args = command.split(" ")
-        cmd = args.pop(0)
-        # Execute the command
-        match cmd:
-          case "test":
-            history += f"Test! You entered {len(args)} arguments.\n"
-            break
-          case _:
-            history += f"Unknown command: {cmd}.\n"
-        command = ""
-      elif event.key == "Backspace":
-        # Handle backspace to delete last character
-        command = command[:-1]
-      else:
-        # Add characters
-        command += event.letter
-      renderTerminal()
-    CatCore.keyboard.on("hold", keyholdHandler)
     ```
   </Tab>
   <Tab value="PHP">

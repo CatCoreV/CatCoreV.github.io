@@ -1,5 +1,5 @@
 {
   "title": "Advanced",
   "icon": "Atom",
-  "pages": ["app-file-structure"]
+  "pages": ["app-file-structure", "kernel-configuration"]
 }

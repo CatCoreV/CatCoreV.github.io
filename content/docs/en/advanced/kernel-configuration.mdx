@@ -1,0 +1,48 @@
+---
+title: Kernel Configuration
+description: Editing kernel.conf file.
+---
+
+Kernel settings are located in `/config/kernel.conf` as one `key=value` pair per line.
+
+Default config:
+
+```ini
+logs=0
+scan_devices=1
+starting_fd=3
+boot_delay=500
+lib_path=/app;/lib
+```
+
+<Accordions>
+  <Accordion title="logs" id="kernelconf-logs">
+    Show (`1`) or hide (`0`) the kernel log panel.
+
+    `Ctrl+Shift+F8` toggles and saves this setting.
+
+    Defaults to `0`.
+  </Accordion>
+  <Accordion title="scan_devices" id="kernelconf-scan_devices">
+    Do (`1`) or skip (`0`) device scanning at boot.
+
+    Defaults to `1`.
+  </Accordion>
+  <Accordion title="starting_fd" id="kernelconf-starting_fd">
+    Starting file descriptor number.
+
+    Defaults to `3` leaving space for stdin/stdout/stderr as 0/1/2, even though they do not exist, so feel free to change to `0` or any other value if you want.
+  </Accordion>
+  <Accordion title="boot_delay" id="kernelconf-boot_delay">
+    Delay (in milliseconds) before starting the OS.
+
+    Defaults to `500`.
+  </Accordion>
+  <Accordion title="lib_path" id="kernelconf-lib_path">
+    Directories where to search libraries when requested, separated by semicolons.
+
+    Defaults to `/app;/lib`.
+  </Accordion>
+</Accordions>
+
+Settings are read by the kernel at boot only, reboot after changing.
